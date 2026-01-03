@@ -1,0 +1,12 @@
+/*
+Theme Name: WG Gigs Theme
+Author: Jaya Surya
+Description: Custom WordPress theme built for a Gigs marketplace.
+Version: 1.0
+*/
+
+body {
+  margin: 0;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont;
+  background: #f7f7f7;
+}
