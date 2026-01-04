@@ -1,0 +1,89 @@
+/* WP Gigs - Custom styles for gig listings */
+
+.wg-gig-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 25px;
+}
+
+.wg-gig-item {
+    background: #fff;
+    border: 1px solid #e1e1e1;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+    transition: transform 0.2s;
+}
+
+.wg-gig-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+}
+
+.wg-gig-image {
+    width: 100%;
+    height: 200px;
+    overflow: hidden;
+}
+
+.wg-gig-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.wg-gig-content {
+    padding: 20px;
+}
+
+.wg-gig-title {
+    margin: 0 0 10px 0;
+    font-size: 1.4em;
+}
+
+.wg-gig-title a {
+    text-decoration: none;
+    color: #222;
+}
+
+.wg-gig-title a:hover {
+    color: #0073aa;
+}
+
+.wg-gig-price {
+    font-size: 1.3em;
+    font-weight: bold;
+    color: #28a745;
+    margin: 15px 0 0;
+}
+
+.wg-pagination {
+    text-align: center;
+    margin: 40px 0;
+}
+
+.wg-pagination a,
+.wg-pagination span {
+    display: inline-block;
+    padding: 10px 16px;
+    margin: 0 5px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    text-decoration: none;
+    color: #333;
+}
+
+.wg-pagination a:hover {
+    background: #0073aa;
+    color: white;
+    border-color: #0073aa;
+}
+
+.wg-pagination .current {
+    background: #0073aa;
+    color: white;
+    border-color: #0073aa;
+}
