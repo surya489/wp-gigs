@@ -15,6 +15,25 @@ if ( ! defined( 'ABSPATH' ) ) {
 define( 'WG_PLUGIN_DIR', plugin_dir_path( __FILE__ ) );
 define( 'WG_PLUGIN_URL', plugin_dir_url( __FILE__ ) );
 
+// Activation Hook: Create 'Gigs' Page with Shortcode
+function wg_plugin_activate() {
+    // Check if page already exists
+    $gigs_page = get_page_by_path( 'gigs' );
+    if ( ! $gigs_page ) {
+        // Create the page
+        $page_args = array(
+            'post_title'   => 'Available Gigs',
+            'post_name'    => 'gigs',
+            'post_content' => '[gig_list]',
+            'post_status'  => 'publish',
+            'post_type'    => 'page',
+            'post_author'  => 1,
+        );
+        wp_insert_post( $page_args );
+    }
+}
+register_activation_hook( __FILE__, 'wg_plugin_activate' );
+
 /**
  * Register Custom Post Type: Gigs
  */
@@ -34,7 +53,7 @@ function wg_register_gigs_cpt() {
     $args = array(
         'labels'             => $labels,
         'public'             => true,
-        'has_archive'        => true,
+        'has_archive'        => false,  // Disabled to avoid conflicts; use the auto-created page instead
         'rewrite'            => array( 'slug' => 'gigs' ),
         'supports'           => array( 'title', 'editor', 'thumbnail' ),
         'show_in_rest'       => true,
